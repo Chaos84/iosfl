@@ -6,7 +6,7 @@ iosfl
 1. Installation
 	```bash
 	cd path_to_your_catkin_workspace/src
-	git clone git@github.com:Chaos84/iosfl.git
+	git clone https://github.com/Chaos84/iosfl.git
 	```
 
 2. Compile
