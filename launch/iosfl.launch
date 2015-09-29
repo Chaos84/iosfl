@@ -1,0 +1,7 @@
+<launch>
+	<node pkg="iosfl" name="iosfl_node" type="iosfl_node">
+		<param name="iosfl_lead" value="0.1" type="double"/>
+		<param name="axle" value="0.33" type="double"/>
+		<param name="maximum_speed" value="0.5" type="double"/>			
+	</node>
+</launch>
