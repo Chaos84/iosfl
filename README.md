@@ -3,25 +3,26 @@ iosfl
 
 `iosfl` is a ROS package which implements the Input/Output State Feedback Linearization for a differential drive mobile robot (for reference, see http://www.dis.uniroma1.it/~labrob/pub/papers/CST02.pdf). 
 
-1. Installation
+1. Installation:
 	```bash
 	cd path_to_your_catkin_workspace/src
 	git clone https://github.com/Chaos84/iosfl.git
 	```
 
-2. Compile
+2. Compile:
 	```bash
 	cd path_to_your_catkin_workspace
 	catkin_make
 	```
-3. Run
+3. Run:
 	```bash
 	roscore
 	open another tab
 	rosrun iosfl iosfl_node
 	```
 	
-4. Documentation
+4. Documentation:
+	
 	Generate the documentation by running
 	```bash
 	roscd iosfl
