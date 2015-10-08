@@ -114,7 +114,7 @@ void iosfl::satVel(geometry_msgs::Twist& vel, std::pair<double, double> max_spee
  * @return: a pair with the maximum value and its index (1 or 2). If the
  * two input parameters are equal, this method returns the pair <1, 3>
  */
-std::pair<double, unsigned short> iosfl::whosMax(double a, double b)
+std::pair<double, unsigned short> iosfl::whosMax(const double a, const double b)
 {
   std::pair<double, unsigned short> res;
 
@@ -148,7 +148,7 @@ std::pair<double, unsigned short> iosfl::whosMax(double a, double b)
  * @return: an \ref std::pair<double, double> with the maximum value and its index (1 or 2). If the
  * two input parameters are equal, this method returns the pair <1, 3>
  */
-std::pair<double, unsigned short> iosfl::whosMax(double a, double b, std::pair<double, double> maxSpeed)
+std::pair<double, unsigned short> iosfl::whosMax(const double a, const double b, const std::pair<double, double> maxSpeed)
 {
   std::pair<double, unsigned short> res;
 

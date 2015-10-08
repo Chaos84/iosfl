@@ -38,8 +38,8 @@ private:
   void odometry_callback(const nav_msgs::OdometryConstPtr&);
   void state_feedback_linearization(const geometry_msgs::TwistConstPtr&);
   void satVel(geometry_msgs::Twist&);
-  std::pair<double, unsigned short> whosMax(double a, double b);
-  static std::pair<double, unsigned short> whosMax(double a, double b, std::pair<double, double>);
+  std::pair<double, unsigned short> whosMax(const double, const double);
+  static std::pair<double, unsigned short> whosMax(const double, const double, const std::pair<double, double>);
   /// Nodehandle
   ros::NodeHandle nh_;
   /// Speed publisher
