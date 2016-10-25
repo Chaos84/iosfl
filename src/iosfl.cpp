@@ -148,7 +148,8 @@ std::pair<double, unsigned short> iosfl::whosMax(const double a, const double b)
  * @return: an \ref std::pair<double, double> with the maximum value and its index (1 or 2). If the
  * two input parameters are equal, this method returns the pair <1, 3>
  */
-std::pair<double, unsigned short> iosfl::whosMax(const double a, const double b, const std::pair<double, double> maxSpeed)
+std::pair<double, unsigned short> iosfl::whosMax(const double a, const double b,
+                                                 const std::pair<double, double> maxSpeed)
 {
   std::pair<double, unsigned short> res;
 
@@ -187,15 +188,19 @@ void iosfl::state_feedback_linearization(const geometry_msgs::TwistConstPtr& spe
   }
   catch (tf::TransformException& ex)
   {
-    ROS_ERROR("Something went wrong while trying to get the transformation from \"map\" to \"base_link\". Did you forgot to publish it?");
+    ROS_ERROR(
+        "Something went wrong while trying to get the transformation from \"map\" to \"base_link\". Did you forgot to publish it?");
     ROS_ERROR("Exception: %s", ex.what());
     return;
   }
 
   float yaw = tf::getYaw(tr.getRotation());
 
-  cmd_vel_.linear.x = cos(yaw) * speed->linear.x + sin(yaw) * speed->linear.y;
-  cmd_vel_.angular.z = -1 / b_ * sin(yaw) * speed->linear.x + 1 / b_ * cos(yaw) * speed->linear.y;
+  ROS_INFO("Yaw: %f", yaw * 180.0f / 3.1415f);
+
+  cmd_vel_.linear.x = speed->linear.x + sin(yaw) * speed->linear.y;
+  cmd_vel_.angular.z = -sin(yaw) * speed->linear.x / b_ + cos(yaw) * speed->linear.y / b_;
+
   this->satVel(cmd_vel_);
   speed_pub_.publish(cmd_vel_);
 }

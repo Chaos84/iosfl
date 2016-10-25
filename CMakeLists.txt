@@ -18,3 +18,8 @@ target_link_libraries(iosfl ${catkin_LIBRARIES})
 
 add_executable(iosfl_node src/iosfl_node.cpp)
 target_link_libraries(iosfl_node ${catkin_LIBRARIES} iosfl)
+
+install(DIRECTORY include/${PROJECT_NAME}/
+  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+  FILES_MATCHING PATTERN "*.h"
+  PATTERN ".svn" EXCLUDE)
